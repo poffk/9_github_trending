@@ -1,5 +1,4 @@
 import requests
-import json
 from datetime import date, timedelta
 
 
@@ -8,8 +7,8 @@ TOP_SIZE = 20
 
 def get_trending_repositories(top_size):
     week_ago_date = date.today() - timedelta(days=7)
-    sorted_repositories = requests.get('https://api.github.com/search/repositories?' \
-                                              'q=created:>{}&sort=stars'.format(week_ago_date))
+    payload = {'q': 'created:>{}' .format(week_ago_date), 'sort': 'stars'}
+    sorted_repositories = requests.get('https://api.github.com/search/repositories', params=payload)
     return sorted_repositories.json()['items'][:top_size]
 
 
