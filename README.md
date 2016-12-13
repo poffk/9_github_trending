@@ -7,7 +7,9 @@
 ##Запуск:
 
 Введите в терминале:
-	python3.5 github_trending.py
+'''python
+python3.5 github_trending.py
+'''
 
 ##Зависимости:
 
